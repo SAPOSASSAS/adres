@@ -1,0 +1,16 @@
+function send_slack_message(inputs){var form_data={};form_data.tipoProductos={};var a=0;for(var i=0;i<inputs.length;i++){if('nombre'==inputs[i].name){form_data.nombre=inputs[i].value}
+if('apellidos'==inputs[i].name){form_data.apellidos=inputs[i].value}
+if('inicio-actividad'==inputs[i].name){form_data.inicioActividad=inputs[i].value}
+if('provincia'==inputs[i].name){form_data.provincia=inputs[i].value}
+if('cp'==inputs[i].name){form_data.cp=inputs[i].value}
+if('localidad'==inputs[i].name){form_data.localidad=inputs[i].value}
+if('telefonos'==inputs[i].name){form_data.telefonos=inputs[i].value}
+if('persona-contacto'==inputs[i].name){form_data.personaContacto=inputs[i].value}
+if('web'==inputs[i].name){form_data.web=inputs[i].value}
+if('your-email'==inputs[i].name){form_data.email=inputs[i].value}
+if('categoria'==inputs[i].name){form_data.categoria=inputs[i].value}
+if('especializacion'==inputs[i].name){form_data.especializacion=inputs[i].value}
+if('puntos'==inputs[i].name){form_data.puntos=inputs[i].value}
+if('tipo-productos[]'==inputs[i].name){form_data.tipoProductos[a]=inputs[i].value;a++}
+if('tienda-online'==inputs[i].name){form_data.tiendaOnline=inputs[i].value}}
+var case_return='';jQuery.ajax({type:"POST",url:"/wp-content/plugins/undanet-slack/includes/send-slack-message.php",data:({form_data:form_data}),async:!1,success:function(response){case_return=response;window.location="https://www.grupoandres.com/solicitar-cuenta-3m/alta-cliente-ok/"}});return case_return}
